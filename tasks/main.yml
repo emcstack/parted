@@ -10,4 +10,5 @@
 - name: Partition disks
   include: partition.yml
   become: yes
-
+  when:
+  - "{{ hdds }}"
