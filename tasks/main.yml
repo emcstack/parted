@@ -4,7 +4,8 @@
 - name: Pre-Requesites
   include: el_pre_requesites.yml
   when: (ansible_os_family == "CentOS") or
-        (ansible_os_family == "RedHat")
+        (ansible_os_family == "RedHat") or
+        (ansible_os_family == "Debian")
   become: yes
 
 - name: Partition disks
