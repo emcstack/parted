@@ -1,5 +1,11 @@
 ---
-# Pre-Requesites for RH or CentOS
+# Pre-Requesites for RH or CentOS or Debian
 
-- name: Install parted
+- name: Install parted on CentOS or RedHat
   yum: name=parted state=latest
+  when: (ansible_os_family == "CentOS") or
+        (ansible_os_family == "RedHat")
+
+- name: Install parted on Debian
+  apt: name=parted state=latest
+  when: (ansible_os_family == "Debian")
